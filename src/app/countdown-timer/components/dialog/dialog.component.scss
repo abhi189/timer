@@ -1,0 +1,53 @@
+@use '../../../../assets/scss/index.scss';
+
+:host {
+    height: 100%;
+    width: 100%;
+}
+.timer-notify{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    @extend .flex;
+    @extend .flex-center;
+    .bgMask{
+      position: fixed;
+      background: rgba(0,0,0,0.4);
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      transition: 300ms all;
+    }
+    .notify-message{
+      transition: 300ms all;
+      width: 400px;
+      padding: 1.5em;
+      z-index: 4;
+      background: #fff;
+      text-align: center;
+      span{
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        cursor: pointer;
+      }
+      p{
+        font-size: 1.4em;
+        font-weight: 600;
+        line-height: 1.5;
+        text-transform: capitalize;
+        margin: 1em 0;
+      }
+      button{
+        @extend .btn;
+        background: #cb2127;
+        outline: none;
+        width: auto;
+        color: #fff;
+        border: 1px solid #cb2127;
+        cursor: pointer;
+      }
+    }
+  }

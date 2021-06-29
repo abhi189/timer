@@ -1,0 +1,26 @@
+<main>
+    <section class="timer-section">
+        <div class="timer-section_container" *ngIf="!countDownEnd">
+            <audio #audioFile id="audioTag" src="assets/alarm.mp3" preload="none" style="visibility: hidden"></audio>
+            <div class="timer-section_container_inner">
+                <h3  *ngIf="!countDownStart">Please set your countdown</h3>
+                <countdown-form
+                *ngIf="!countDownStart"
+                (setTimer)="onSetTimer($event)"
+                ></countdown-form>
+                <countdown-timer
+                *ngIf="countDownStart"
+                [hours]="hours"
+                [minutes]="minutes"
+                [seconds]="seconds"
+                (notifyUser)="onTimerDone($event)"
+                (resetCountDown)="resetTimer()"
+                ></countdown-timer>
+            </div>  
+        </div>
+        <countdown-notify
+        *ngIf="countDownEnd"
+        (startCountDown)="startNewTimer()"
+        ></countdown-notify>
+    </section>
+</main>

@@ -1,0 +1,20 @@
+<h3>Your countdown timer is set to <br/><strong>{{countdownTime.date}}, &nbsp;&nbsp;{{countdownTime.time}}</strong></h3>
+<div class="timer-container">
+    <div class="timer-container_content">
+      <div class="timer-hours">
+        <span>Hours</span>
+        <span>{{countdownHours}}</span>
+      </div>
+      <div class="timer-hours">
+        <span>Minutes</span>
+        <span>{{countdownMinutes}}</span>
+      </div>
+      <div class="timer-hours">
+        <span>Seconds</span>
+        <span>{{countdownSeconds}}</span>
+      </div>
+    </div>
+    <div class="timer-container_action">
+      <span class="btn"(click)="resetTimer()">reset timer</span>
+    </div>
+</div>

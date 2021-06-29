@@ -1,0 +1,22 @@
+<div class="timer-form">
+    <form #inputTimerForm="ngForm">
+      <div class="timer-form_input">
+        <div [ngClass]="submittingForm && (!inputTimerForm.controls.hours.touched || !inputTimerForm.controls.hours.valid) ? 'in-valid' : 'valid'">
+          <input name="hours" type="number" min="0" placeholder="Hours" ngModel #hours="ngModel">
+        </div>
+        <div [ngClass]="submittingForm && (!inputTimerForm.controls.minutes.touched || !inputTimerForm.controls.minutes.valid) ? 'in-valid' : 'valid'">
+          <input name="minutes" type="number" min="0" max="59" placeholder="Minutes" ngModel #minutes="ngModel">
+        </div>
+        <div [ngClass]="submittingForm && (!inputTimerForm.controls.seconds.touched || !inputTimerForm.controls.seconds.valid) ? 'in-valid' : 'valid'">
+          <input name="seconds" type="number" min="0" max="59" placeholder="Seconds" ngModel #seconds="ngModel">
+        </div>
+      </div>
+    </form>  
+    <div *ngIf="submittingForm && formError" class="error">
+      Please enter valid time.
+    </div>
+    <div class="timer-form_action">
+      <span (click)="setCoundown(inputTimerForm)">set timer</span>
+      <span (click)="clearTimer(inputTimerForm)">clear</span>
+    </div>
+  </div>
